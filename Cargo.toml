@@ -1,0 +1,21 @@
+cargo-features = ["edition2024"]
+[package]
+name = "prezentare_licenta"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# [profile.wasm]
+# inherits = "release"
+# [profile.wasm.build-override]
+# rustflags = ["-C", "target-feature=+atomics,+bulk-memory,+mutable-globals"]
+
+[dependencies]
+console_error_panic_hook = "0.1"
+appcui = { version = "*", path = "../AppCUI-rs/appcui"}
+# appcui_proc_macro = { version = "*", path = "../AppCUI-rs/appcui-proc-macro"}
+
+wasm-bindgen = {version = "0.2"}
+web-sys = {version = "*", features = ["console"]}
