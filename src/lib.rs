@@ -16,7 +16,10 @@ impl PresentationData {
 
         for slide_content in slide_contents.iter() {
             match Surface::from_buffer(slide_content) {
-                Ok(srf) => slides.push(srf),
+                Ok(mut srf) => {
+                    // Self::contrast(&mut srf);
+                    slides.push(srf)
+                }
                 Err(e) => {
                     web_sys::console::error_1(
                         &format!("Failed to load slide '{slide_content:?}': {e}").into(),
@@ -30,6 +33,38 @@ impl PresentationData {
             current_slide: 0,
         }
     }
+
+    fn contrast(surface: &mut Surface) {
+        // Apply contrast to the surface
+        for y in 0..surface.size().height {
+            for x in 0..surface.size().width {
+                let mut ch = *surface.char(x as i32, y as i32).unwrap();
+                // ch.foreground = ch.foreground.inverse_color();
+                ch.foreground = match ch.foreground {
+                    Color::Black => Color::White,
+                    Color::DarkBlue => Color::DarkBlue,
+                    Color::DarkGreen => Color::DarkGreen,
+                    Color::Teal => Color::Teal,
+                    Color::DarkRed => Color::DarkRed,
+                    Color::Magenta => Color::Magenta,
+                    Color::Olive => Color::Black,
+                    Color::Silver => Color::Gray,
+                    Color::Gray => Color::Black,
+                    Color::Blue => Color::DarkBlue,
+                    Color::Green => Color::DarkGreen,
+                    Color::Aqua => Color::Teal,
+                    Color::Red => Color::DarkRed,
+                    Color::Pink => Color::Magenta,
+                    Color::Yellow => Color::Black,
+                    Color::White => Color::Black,
+                    Color::Transparent => Color::Transparent,
+                };
+                ch.background = Color::White;
+                surface.write_char(x as i32, y as i32, ch);
+            }
+        }
+    }
+
     fn next_slide(&mut self) -> bool {
         if self.current_slide + 1 < self.slides.len() {
             self.current_slide += 1;
