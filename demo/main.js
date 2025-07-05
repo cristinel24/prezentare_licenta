@@ -8,7 +8,7 @@ init({
   memory: new WebAssembly.Memory({ initial: 200, maximum: 16384, shared: true })
 }).then(async () => {
   console.log("WASM module initialized");
-  await wasm.initThreadPool(2);
+  await wasm.initThreadPool(3);
 
   if (wasm.main) {
     wasm.main();
