@@ -1,0 +1,15 @@
+{
+  "name": "prezentare_licenta",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "prezentare_licenta_bg.wasm",
+    "prezentare_licenta.js",
+    "prezentare_licenta.d.ts"
+  ],
+  "main": "prezentare_licenta.js",
+  "types": "prezentare_licenta.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
