@@ -5,10 +5,10 @@ import init, * as wasm from "./pkg/demo_licenta.js";
 
 init({ 
   module: new URL("./pkg/demo_licenta.wasm", import.meta.url),
-  memory: new WebAssembly.Memory({ initial: 1000, maximum: 32384, shared: true })
+  memory: new WebAssembly.Memory({ initial: 2000, maximum: 16384, shared: true })
 }).then(async () => {
   console.log("WASM module initialized");
-  await wasm.initThreadPool(5);
+  await wasm.initThreadPool(3);
 
   if (wasm.main) {
     wasm.main();
