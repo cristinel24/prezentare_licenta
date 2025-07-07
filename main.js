@@ -1,6 +1,6 @@
 console.log("SharedArrayBuffer available:", typeof SharedArrayBuffer !== "undefined");
 
-import init, * as wasm from "./pkg/prezentare_licenta.js";
+import init, * as wasm from "./pkg_dark_mode/prezentare_licenta.js";
 
 init().then(() => {
   console.log("WASM module initialized");

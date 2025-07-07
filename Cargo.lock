@@ -25,7 +25,7 @@ dependencies = [
 
 [[package]]
 name = "appcui"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "EnumBitFlags",
  "appcui_proc_macro",
@@ -46,9 +46,9 @@ dependencies = [
 
 [[package]]
 name = "appcui_proc_macro"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "651e6208f770f3ffd57fd069c2a82fae5474885a46ba5de36c28cf03785b07d3"
+checksum = "4d797fa2c5355c1b269d9f506426393642e4fe72ec9783b98ede608ddb94b239"
 
 [[package]]
 name = "autocfg"
